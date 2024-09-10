@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  smyfony:
+    container_name: lf10
+    image: dockware/essentials:latest
+    volumes: 
+      - ./symfony:/var/www/html
+    ports:
+      - "80:80"     # apache2
+      - "3306:3306" # mysql port
+    networks:
+      - web
+    environment:
+      - XDEBUG_ENABLED=0
+networks:
+  web:
+    external: false
